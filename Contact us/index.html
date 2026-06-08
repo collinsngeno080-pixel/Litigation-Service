@@ -7,6 +7,8 @@
   <title>Contact Us | Lit &amp; More</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://js-na2.hsforms.net" crossorigin />
+  <link rel="dns-prefetch" href="https://js-na2.hsforms.net" />
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,600;1,700&display=swap" rel="stylesheet" />
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <link rel="stylesheet" href="../styles.css" />
@@ -22,7 +24,7 @@
 
   <ul class="nav-links">
     <li><a href="../index.html#services">Service Examples</a></li>
-    <li><a href="../index.html#how-it-works">How It Works</a></li>
+    <li><a href="../how-it-works/index.html">How It Works</a></li>
     <li><a href="../index.html#security">Security</a></li>
     <li class="nav-dropdown">
       <a href="#" class="nav-dropdown-toggle">Contact <span class="nav-caret">▾</span></a>
@@ -49,9 +51,23 @@
 
   <!-- HubSpot Form -->
   <div class="contact-form-wrapper">
-    <script src="https://js-na2.hsforms.net/forms/embed/243506781.js" defer></script>
+    <div class="form-loading" id="formLoading">
+      <div class="form-loading-spinner"></div>
+      <p>Loading form...</p>
+    </div>
+    <script src="https://js-na2.hsforms.net/forms/embed/243506781.js"></script>
     <div class="hs-form-frame" data-region="na2" data-form-id="78f8ff6f-9f87-4346-8236-2946e35d6c95" data-portal-id="243506781"></div>
   </div>
+  <script>
+    const observer = new MutationObserver(() => {
+      const frame = document.querySelector('.hs-form-frame iframe, .hs-form-frame form');
+      if (frame) {
+        document.getElementById('formLoading').style.display = 'none';
+        observer.disconnect();
+      }
+    });
+    observer.observe(document.querySelector('.hs-form-frame'), { childList: true, subtree: true });
+  </script>
 </main>
 
 <!-- ── Footer ── -->
@@ -82,9 +98,9 @@
       <div class="footer-social-block">
         <p class="footer-social-label">Follow us on</p>
         <div class="social-icons">
-          <a href="#" aria-label="Facebook"><img src="../images/icon-facebook.png" alt="Facebook" /></a>
-          <a href="#" aria-label="Instagram"><img src="../images/icon-instagram.png" alt="Instagram" /></a>
-          <a href="#" aria-label="LinkedIn"><img src="../images/icon-linkedin.png" alt="LinkedIn" /></a>
+          <a href="https://web.facebook.com/litnmore" target="_blank" aria-label="Facebook"><img src="../images/icon-facebook.png" alt="Facebook" /></a>
+          <a href="https://www.instagram.com/litnmorefl" target="_blank" aria-label="Instagram"><img src="../images/icon-instagram.png" alt="Instagram" /></a>
+          <a href="https://www.linkedin.com/company/lit-&-more/" target="_blank" aria-label="LinkedIn"><img src="../images/icon-linkedin.png" alt="LinkedIn" /></a>
         </div>
       </div>
     </div>

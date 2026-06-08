@@ -462,6 +462,24 @@ a { text-decoration: none; color: inherit; }
   margin-bottom: 20px;
 }
 
+/* Photo-top cards: image flush to top and sides */
+.service-card--photo-top {
+  padding: 0;
+  overflow: hidden;
+}
+.service-card--photo-top .service-card-photo {
+  margin-top: 0;
+  border-radius: 0;
+}
+.service-card--photo-top .service-card-photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.service-card--photo-top .service-card-text {
+  padding: 28px 36px 36px;
+}
+
 /* Service card photo (e.g. Format Conversion) */
 .service-card-photo {
   margin-top: 28px;
